@@ -43,3 +43,21 @@ functions:
       - http:
           path: notes/{id}
           method: get
+  query:
+    handler: list.main
+    events:
+      - http:
+          path: notes
+          method: get
+  update:
+    handler: update.main
+    events:
+      - http:
+          path: notes/{id}
+          method: post
+  delete:
+    handler: delete.main
+    events:
+      - http:
+          path: notes/{id}
+          method: delete

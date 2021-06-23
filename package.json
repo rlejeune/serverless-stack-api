@@ -4,7 +4,8 @@
   "description": "A Node.js starter for Serverless Framework with ES6 and TypeScript support",
   "main": "handler.js",
   "scripts": {
-    "test": "serverless-bundle test"
+    "test": "serverless-bundle test",
+    "lint": "eslint '**/*.js'"
   },
   "author": "",
   "license": "MIT",
@@ -14,11 +15,16 @@
   },
   "devDependencies": {
     "aws-sdk": "^2.932.0",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.1",
     "serverless-bundle": "4.3.1",
     "serverless-dotenv-plugin": "^2.1.1",
     "serverless-offline": "^5.3.3"
   },
   "dependencies": {
+    "stripe": "^8.156.0",
     "uuid": "^7.0.3"
   }
 }

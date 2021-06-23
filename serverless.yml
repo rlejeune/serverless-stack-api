@@ -29,7 +29,7 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
         - dynamodb:DescribeTable
-      Resource: "arn:aws:dynamodb:us-east-1:*:*"
+      Resource: 'arn:aws:dynamodb:us-east-1:*:*'
 
 resources:
   - ${file(resources/api-gateway-errors.yml)}
@@ -64,7 +64,7 @@ functions:
     events:
       - http:
           path: notes/{id}
-          method: post
+          method: put
           cors: true
           authorizer: aws_iam
   delete:

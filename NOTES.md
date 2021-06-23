@@ -12,7 +12,7 @@ Service Information
   - POST - https://knzs5vrn96.execute-api.us-east-1.amazonaws.com/prod/notes
   - GET - https://knzs5vrn96.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
   - GET - https://knzs5vrn96.execute-api.us-east-1.amazonaws.com/prod/notes
-  - POST - https://knzs5vrn96.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+  - PUT - https://knzs5vrn96.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
   - DELETE - https://knzs5vrn96.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
   - POST - https://knzs5vrn96.execute-api.us-east-1.amazonaws.com/prod/billing
 - functions:

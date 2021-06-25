@@ -17,11 +17,24 @@ export default class CognitoStack extends sst.Stack {
       generateSecret: false,
     });
 
+    const identityPool = new cognito.CfnIdentityPool(this, 'IdentityPool', {
+      allowUnauthenticatedIdentities: false,
+      cognitoIdentityProviders: [
+        {
+          clientId: userPoolClient.userPoolClientId,
+          providerName: userPool.userPoolProviderName,
+        },
+      ],
+    });
+
     new CfnOutput(this, 'UserPoolId', {
       value: userPool.userPoolId,
     });
     new CfnOutput(this, 'UserPoolClientId', {
       value: userPoolClient.userPoolClientId,
+    });
+    new CfnOutput(this, 'IdentityPool', {
+      value: identityPool.ref,
     });
   }
 }

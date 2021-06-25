@@ -23,7 +23,7 @@ export default class CognitoAuthRole extends cdk.Construct {
     this.role.addToPolicy(
       new iam.PolicyStatement({
         effect: iam.Effect.ALLOW,
-        actions: ['mobileanalytics:PutEvents', 'cognito-sync:*', 'cognito:identity:*'],
+        actions: ['mobileanalytics:PutEvents', 'cognito-sync:*', 'cognito-identity:*'],
         resources: ['*'],
       }),
     );

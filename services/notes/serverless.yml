@@ -9,6 +9,10 @@ plugins:
   - serverless-offline
   - serverless-dotenv-plugin # Load .env as environment variables
 
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  sstApp: ${self:custom.stage}-notes-infra
+
 provider:
   name: aws
   runtime: nodejs12.x
@@ -16,7 +20,7 @@ provider:
   region: us-east-1
 
   environment:
-    tableName: notes
+    tableName: !ImportValue '${self:custom.sstApp}-TableName'
     stripeSecretKey: ${env:STRIPE_SECRET_KEY}
 
   iamRoleStatements:
@@ -29,10 +33,12 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
         - dynamodb:DescribeTable
-      Resource: 'arn:aws:dynamodb:us-east-1:*:*'
+      Resource:
+        - !ImportValue '${self:custom.sstApp}-TableArn'
 
 resources:
   - ${file(resources/api-gateway-errors.yml)}
+  - ${file(resources/cognito-policy.yml)}
 
 functions:
   create:

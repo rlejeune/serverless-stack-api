@@ -8,7 +8,7 @@ A Serverless starter that adds ES6, TypeScript, serverless-offline, linting, env
 - **Using ES6 or TypeScript in your handler functions**
 - **Run API Gateway locally**
   - Use `serverless offline start`
-- **Support for unit tests**
+- **Support for unit tests** 
   - Run `npm test` to run your tests
 - **Sourcemaps for proper error messages**
   - Error message show the correct line numbers
